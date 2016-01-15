@@ -25,14 +25,14 @@ local function list_all_plugins(only_enabled)
   local text = ''
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
-    --  ✔ enabled, ❌ disabled
-    local status = '❌'
+    --  ✅ enabled, ❎ disabled
+    local status = '❎'
     nsum = nsum+1
     nact = 0
     -- Check if is enabled
     for k2, v2 in pairs(_config.enabled_plugins) do
       if v == v2..'.lua' then 
-        status = '✔' 
+        status = '✅' 
       end
       nact = nact+1
     end
@@ -50,14 +50,14 @@ local function list_plugins(only_enabled)
   local text = ''
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
-    --  ✔ enabled, ❌ disabled
-    local status = '❌'
+    --  ✅ enabled, ❎ disabled
+    local status = '❎'
     nsum = nsum+1
     nact = 0
     -- Check if is enabled
     for k2, v2 in pairs(_config.enabled_plugins) do
       if v == v2..'.lua' then 
-        status = '✔' 
+        status = '✅' 
       end
       nact = nact+1
     end
@@ -198,22 +198,22 @@ return {
   description = "Plugin to manage other plugins. Enable, disable or reload.", 
   usage = {
       moderator = {
-          "!plugins disable [plugin] chat : disable plugin only this chat.",
-          "!plugins enable [plugin] chat : enable plugin only this chat.",
+          "!plug - [plugin] gp : disable plugin only this chat.",
+          "!plug + [plugin] gp : enable plugin only this chat.",
           },
       sudo = {
-          "!plugins : list all plugins.",
-          "!plugins enable [plugin] : enable plugin.",
-          "!plugins disable [plugin] : disable plugin.",
-          "!plugins reload : reloads all plugins." },
+          "!plug * : list all plugins.",
+          "!plug + [plugin] : enable plugin.",
+          "!plug - [plugin] : disable plugin.",
+          "!plug > : reloads all plugins." },
           },
   patterns = {
-    "^!plugins$",
-    "^!plugins? (enable) ([%w_%.%-]+)$",
-    "^!plugins? (disable) ([%w_%.%-]+)$",
-    "^!plugins? (enable) ([%w_%.%-]+) (chat)",
-    "^!plugins? (disable) ([%w_%.%-]+) (chat)",
-    "^!plugins? (reload)$" },
+    "^!plug *$",
+    "^!plug? (+) ([%w_%.%-]+)$",
+    "^!plug? (-) ([%w_%.%-]+)$",
+    "^!plug? (+) ([%w_%.%-]+) (chat)",
+    "^!plug? (-) ([%w_%.%-]+) (chat)",
+    "^!plug? (>)$" },
   run = run,
   moderated = true, -- set to moderator mode
   --privileged = true
