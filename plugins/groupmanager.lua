@@ -303,7 +303,7 @@ end
 return {
   description = "Plugin to manage group chat.", 
   usage = {
-    "!creategroup <group_name> : Create a new group (admin only)",
+    "! cgroup <group_name> : Create a new group (admin only)",
     "!setabout <description> : Set group description",
     "!about : Read group description",
     "!setrules <rules> : Set group rules",
@@ -316,7 +316,7 @@ return {
     "!group settings : Show group settings"
     },
   patterns = {
-    "^!(creategroup) (.*)$",
+    "^!(cgroup) (.*)$",
     "^!(setabout) (.*)$",
     "^!(about)$",
     "^!(setrules) (.*)$",
