@@ -216,6 +216,7 @@ function create_config( )
       "id",
       "images",
       "img_google",
+      "joke",
       "location",
       "media",
       "plugins",
